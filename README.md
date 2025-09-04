@@ -9,23 +9,23 @@ This document outlines the 1-week development plan to complete the backend for *
 ### **Day 1 – Setup & Authentication**
 
 * [x] Configure environment (`.env`, database connection).
-* [ ] Implement authentication (login & register) with role separation (Admin & Student).
-* [ ] Apply middleware for `admin.php` routes.
-* [ ] Test basic authentication flow.
+* [x] Implement authentication (login & register) with role separation (Admin & Student).
+* [x] Apply middleware for `admin.php` routes.
+* [x] Test basic authentication flow.
 
 ---
 
 ### **Day 2 – Database & Models**
 
-* [ ] Review and finalize all migrations (users, categories, instructors, courses, schedules, bookings).
-* [ ] Define Eloquent relationships:
+* [x] Review and finalize all migrations (users, categories, instructors, courses, schedules, bookings).
+* [x] Define Eloquent relationships:
 
   * `User` ↔ `Booking`
   * `Course` ↔ `Category`
   * `Course` ↔ `Instructor`
   * `Course` ↔ `Schedule`
-* [ ] Create factories and seeders for dummy data.
-* [ ] Run migrations and seed database.
+* [x] Create factories and seeders for dummy data.
+* [x] Run migrations and seed database.
 
 ---
 
