@@ -31,10 +31,10 @@ This document outlines the 1-week development plan to complete the backend for *
 
 ### **Day 3 – Admin: Course Management**
 
-* [ ] Complete **Admin\CourseController** with full CRUD.
-* [ ] Add form validation with `StoreCourseRequest` & `UpdateCourseRequest`.
-* [ ] Enable course thumbnail upload (optional).
-* [ ] Ensure relation handling with Category & Instructor.
+* [x] Complete **Admin\CourseController** with full CRUD.
+* [x] Add form validation with `StoreCourseRequest` & `UpdateCourseRequest`.
+* [x] Enable course thumbnail upload (optional).
+* [x] Ensure relation handling with Category & Instructor.
 
 ---
 
