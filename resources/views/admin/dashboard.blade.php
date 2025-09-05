@@ -67,6 +67,17 @@
         <div class="card text-center">
             <div class="card-body">
                 <i class="fa fa-calendar fa-3x text-muted mb-3"></i>
+                <h5 class="card-title">Schedules</h5>
+                <p class="card-text">Manage course schedules</p>
+                <a href="{{ route('admin.schedules.index') }}" class="btn btn-warning">Manage Schedules</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-3 mb-4">
+        <div class="card text-center">
+            <div class="card-body">
+                <i class="fa fa-calendar-check-o fa-3x text-muted mb-3"></i>
                 <h5 class="card-title">Bookings</h5>
                 <p class="card-text">Review student bookings</p>
                 <button class="btn btn-secondary" disabled>Coming Soon</button>
@@ -125,10 +136,23 @@
                         <p class="text-muted">Categories</p>
                     </div>
                     <div class="col-md-3">
+                        <h3 class="text-warning">{{ $stats['total_schedules'] }}</h3>
+                        <p class="text-muted">Total Schedules</p>
+                    </div>
+                    <div class="col-md-3">
+                        <h3 class="text-info">{{ $stats['scheduled_sessions'] }}</h3>
+                        <p class="text-muted">Scheduled Sessions</p>
+                    </div>
+                </div>
+                
+                <hr class="my-4">
+                
+                <div class="row text-center">
+                    <div class="col-md-4 offset-md-2">
                         <h3 class="text-info">{{ $stats['total_students'] }}</h3>
                         <p class="text-muted">Students</p>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         <h3 class="text-success">{{ $stats['verified_payments'] }}</h3>
                         <p class="text-muted">Verified Payments</p>
                     </div>

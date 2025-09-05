@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Models\User;
 use App\Models\Booking;
 use App\Models\Payment;
+use App\Models\Schedule;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -28,6 +29,8 @@ class DashboardController extends Controller
         $activeBookings = Booking::where('status', 'active')->count();
         $pendingPayments = Payment::where('status', 'pending')->count();
         $verifiedPayments = Payment::where('status', 'verified')->count();
+        $totalSchedules = Schedule::count();
+        $scheduledSessions = Schedule::where('status', 'scheduled')->count();
 
         $stats = [
             'total_courses' => $totalCourses,
@@ -39,6 +42,8 @@ class DashboardController extends Controller
             'active_bookings' => $activeBookings,
             'pending_payments' => $pendingPayments,
             'verified_payments' => $verifiedPayments,
+            'total_schedules' => $totalSchedules,
+            'scheduled_sessions' => $scheduledSessions,
         ];
 
         return view('admin.dashboard', compact('stats'));

@@ -50,6 +50,7 @@
                                     <a class="dropdown-item" href="{{ route('admin.dashboard') }}">Dashboard</a>
                                     <a class="dropdown-item" href="{{ route('admin.categories.index') }}">Manage Categories</a>
                                     <a class="dropdown-item" href="{{ route('admin.courses.index') }}">Manage Courses</a>
+                                    <a class="dropdown-item" href="{{ route('admin.schedules.index') }}">Manage Schedules</a>
                                     <a class="dropdown-item" href="{{ route('admin.users.index') }}">Manage Users</a>
                                 @elseif(Auth::user()->isStudent())
                                     <a class="dropdown-item" href="{{ route('student.dashboard') }}">Dashboard</a>
