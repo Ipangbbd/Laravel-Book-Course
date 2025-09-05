@@ -48,8 +48,12 @@
                             <div class="dropdown-menu">
                                 @if(Auth::user()->isAdmin())
                                     <a class="dropdown-item" href="{{ route('admin.dashboard') }}">Dashboard</a>
+                                    <a class="dropdown-item" href="{{ route('admin.categories.index') }}">Manage Categories</a>
+                                    <a class="dropdown-item" href="{{ route('admin.courses.index') }}">Manage Courses</a>
+                                    <a class="dropdown-item" href="{{ route('admin.users.index') }}">Manage Users</a>
                                 @elseif(Auth::user()->isStudent())
                                     <a class="dropdown-item" href="{{ route('student.dashboard') }}">Dashboard</a>
+                                    <a class="dropdown-item" href="{{ route('student.courses.index') }}">Browse Courses</a>
                                 @endif
                                 <div class="dropdown-divider"></div>
                                 <form method="POST" action="{{ route('logout') }}" style="display: inline;">

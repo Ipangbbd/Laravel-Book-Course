@@ -3,6 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Course;
+use App\Models\Category;
+use App\Models\User;
+use App\Models\Booking;
+use App\Models\Payment;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -13,6 +18,29 @@ class DashboardController extends Controller
      */
     public function index(): View
     {
-        return view('admin.dashboard');
+        // Get statistics for dashboard
+        $totalCourses = Course::count();
+        $activeCourses = Course::where('status', 'active')->count();
+        $totalCategories = Category::count();
+        $totalUsers = User::count();
+        $totalStudents = User::where('role', 'student')->count();
+        $totalBookings = Booking::count();
+        $activeBookings = Booking::where('status', 'active')->count();
+        $pendingPayments = Payment::where('status', 'pending')->count();
+        $verifiedPayments = Payment::where('status', 'verified')->count();
+
+        $stats = [
+            'total_courses' => $totalCourses,
+            'active_courses' => $activeCourses,
+            'total_categories' => $totalCategories,
+            'total_users' => $totalUsers,
+            'total_students' => $totalStudents,
+            'total_bookings' => $totalBookings,
+            'active_bookings' => $activeBookings,
+            'pending_payments' => $pendingPayments,
+            'verified_payments' => $verifiedPayments,
+        ];
+
+        return view('admin.dashboard', compact('stats'));
     }
 }
