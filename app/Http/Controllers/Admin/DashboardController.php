@@ -26,9 +26,11 @@ class DashboardController extends Controller
         $totalUsers = User::count();
         $totalStudents = User::where('role', 'student')->count();
         $totalBookings = Booking::count();
-        $activeBookings = Booking::where('status', 'active')->count();
+        $activeBookings = Booking::whereIn('status', ['approved', 'completed'])->count();
+        $pendingBookings = Booking::where('status', 'pending')->count();
         $pendingPayments = Payment::where('status', 'pending')->count();
         $verifiedPayments = Payment::where('status', 'verified')->count();
+        $totalPayments = Payment::count();
         $totalSchedules = Schedule::count();
         $scheduledSessions = Schedule::where('status', 'scheduled')->count();
 
@@ -40,8 +42,10 @@ class DashboardController extends Controller
             'total_students' => $totalStudents,
             'total_bookings' => $totalBookings,
             'active_bookings' => $activeBookings,
+            'pending_bookings' => $pendingBookings,
             'pending_payments' => $pendingPayments,
             'verified_payments' => $verifiedPayments,
+            'total_payments' => $totalPayments,
             'total_schedules' => $totalSchedules,
             'scheduled_sessions' => $scheduledSessions,
         ];

@@ -80,7 +80,7 @@
                 <i class="fa fa-calendar-check-o fa-3x text-muted mb-3"></i>
                 <h5 class="card-title">Bookings</h5>
                 <p class="card-text">Review student bookings</p>
-                <button class="btn btn-secondary" disabled>Coming Soon</button>
+                <a href="{{ route('admin.bookings.index') }}" class="btn btn-primary">Manage Bookings</a>
             </div>
         </div>
     </div>
@@ -92,6 +92,17 @@
                 <h5 class="card-title">Users</h5>
                 <p class="card-text">Manage system users</p>
                 <a href="{{ route('admin.users.index') }}" class="btn btn-success">Manage Users</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3 mb-4">
+        <div class="card text-center">
+            <div class="card-body">
+                <i class="fa fa-credit-card fa-3x text-muted mb-3"></i>
+                <h5 class="card-title">Payments</h5>
+                <p class="card-text">Review and verify payments</p>
+                <a href="{{ route('admin.payments.index') }}" class="btn btn-info">Manage Payments</a>
             </div>
         </div>
     </div>
@@ -148,13 +159,17 @@
                 <hr class="my-4">
                 
                 <div class="row text-center">
-                    <div class="col-md-4 offset-md-2">
+                    <div class="col-md-4">
                         <h3 class="text-info">{{ $stats['total_students'] }}</h3>
                         <p class="text-muted">Students</p>
                     </div>
                     <div class="col-md-4">
                         <h3 class="text-success">{{ $stats['verified_payments'] }}</h3>
                         <p class="text-muted">Verified Payments</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h3 class="text-primary">{{ $stats['total_payments'] }}</h3>
+                        <p class="text-muted">Total Payments</p>
                     </div>
                 </div>
             </div>

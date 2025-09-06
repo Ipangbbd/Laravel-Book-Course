@@ -51,7 +51,7 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::patch('/bookings/{booking}/reject', [AdminBookingController::class, 'reject'])->name('bookings.reject');
     
     // Payment management
-    Route::resource('payments', AdminPaymentController::class)->only(['index', 'show', 'update']);
+    Route::resource('payments', AdminPaymentController::class);
     Route::patch('/payments/{payment}/verify', [AdminPaymentController::class, 'verify'])->name('payments.verify');
     Route::patch('/payments/{payment}/reject', [AdminPaymentController::class, 'reject'])->name('payments.reject');
     

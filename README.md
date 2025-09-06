@@ -40,12 +40,12 @@ This document outlines the 1-week development plan to complete the backend for *
 
 ### **Day 4 – Admin: Schedule & Booking Management**
 
-* [ ] Implement **Admin\ScheduleController** (CRUD for schedules).
-* [ ] Implement **Admin\BookingController**:
+* [x] Implement **Admin\ScheduleController** (CRUD for schedules).
+* [x] Implement **Admin\BookingController**:
 
   * View all bookings.
   * Update booking status (pending, confirmed, canceled).
-* [ ] Verify Course ↔ Schedule ↔ Booking consistency.
+* [x] Verify Course ↔ Schedule ↔ Booking consistency.
 
 ---
 

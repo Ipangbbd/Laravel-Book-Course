@@ -51,6 +51,8 @@
                                     <a class="dropdown-item" href="{{ route('admin.categories.index') }}">Manage Categories</a>
                                     <a class="dropdown-item" href="{{ route('admin.courses.index') }}">Manage Courses</a>
                                     <a class="dropdown-item" href="{{ route('admin.schedules.index') }}">Manage Schedules</a>
+                                    <a class="dropdown-item" href="{{ route('admin.bookings.index') }}">Manage Bookings</a>
+                                    <a class="dropdown-item" href="{{ route('admin.payments.index') }}">Manage Payments</a>
                                     <a class="dropdown-item" href="{{ route('admin.users.index') }}">Manage Users</a>
                                 @elseif(Auth::user()->isStudent())
                                     <a class="dropdown-item" href="{{ route('student.dashboard') }}">Dashboard</a>
@@ -106,7 +108,9 @@
     <!-- Footer -->
     <footer class="bg-light text-center text-muted py-3 mt-5">
         <div class="container">
-            <small>&copy; {{ date('Y') }} Course Booking System. All rights reserved.</small>
+            <small>&copy; 2025 Course Booking System By Muhammad Ali Irfansyah. All rights reserved.</small>
+            <br>
+            <small>Built with passion and endless cups of coffee.</small>
         </div>
     </footer>
 
