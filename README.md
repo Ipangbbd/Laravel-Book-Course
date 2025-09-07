@@ -51,11 +51,11 @@ This document outlines the 1-week development plan to complete the backend for *
 
 ### **Day 5 – Public: Course & Booking**
 
-* [ ] Implement **Public\CourseController**:
+* [x] Implement **Public\CourseController**:
 
   * `index()` → list courses.
   * `show()` → course details with schedule.
-* [ ] Implement **Public\BookingController**:
+* [x] Implement **Public\BookingController**:
 
   * Booking form submission.
   * Validate with `StoreBookingRequest`.
@@ -63,20 +63,7 @@ This document outlines the 1-week development plan to complete the backend for *
 
 ---
 
-### **Day 6 – API Endpoints (Optional but Recommended)**
-
-* [ ] Setup `api.php` routes for JSON API.
-* [ ] Endpoints:
-
-  * `GET /courses`, `GET /courses/{id}`
-  * `POST /bookings`
-  * `GET /bookings/{user}`
-* [ ] Use Laravel API Resources for structured responses.
-* [ ] Add authentication via Sanctum/JWT (if required).
-
----
-
-### **Day 7 – Polishing & Testing**
+### **Day 6 – Polishing & Testing**
 
 * [ ] Perform end-to-end testing for Admin & Public flows.
 * [ ] Strengthen request validations.
