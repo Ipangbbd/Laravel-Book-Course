@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,6 +12,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
+
 <body>
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -18,11 +20,11 @@
             <a class="navbar-brand" href="{{ route('welcome') }}">
                 Course Booking System
             </a>
-            
+
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            
+
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
@@ -31,7 +33,7 @@
                         </a>
                     </li>
                 </ul>
-                
+
                 <ul class="navbar-nav ml-auto">
                     @guest
                         <li class="nav-item">
@@ -42,7 +44,8 @@
                         </li>
                     @else
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-toggle="dropdown">
                                 {{ Auth::user()->name }} ({{ ucfirst(Auth::user()->role) }})
                             </a>
                             <div class="dropdown-menu">
@@ -55,8 +58,21 @@
                                     <a class="dropdown-item" href="{{ route('admin.payments.index') }}">Manage Payments</a>
                                     <a class="dropdown-item" href="{{ route('admin.users.index') }}">Manage Users</a>
                                 @elseif(Auth::user()->isStudent())
-                                    <a class="dropdown-item" href="{{ route('student.dashboard') }}">Dashboard</a>
-                                    <a class="dropdown-item" href="{{ route('student.courses.index') }}">Browse Courses</a>
+                                    <a class="dropdown-item" href="{{ route('student.dashboard') }}">
+                                        <i class="fa fa-tachometer"></i> Dashboard
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('student.courses.index') }}">
+                                        <i class="fa fa-search"></i> Browse Courses
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('student.bookings.index') }}">
+                                        <i class="fa fa-calendar"></i> My Bookings
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('student.payments.index') }}">
+                                        <i class="fa fa-credit-card"></i> Payments
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('student.profile.show') }}">
+                                        <i class="fa fa-user"></i> Profile
+                                    </a>
                                 @endif
                                 <div class="dropdown-divider"></div>
                                 <form method="POST" action="{{ route('logout') }}" style="display: inline;">
@@ -119,4 +135,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </body>
+
 </html>
