@@ -65,11 +65,11 @@ This document outlines the 1-week development plan to complete the backend for *
 
 ### **Day 6 – Polishing & Testing**
 
-* [ ] Perform end-to-end testing for Admin & Public flows.
-* [ ] Strengthen request validations.
-* [ ] Implement error handling and flash messaging.
-* [ ] Add booking notification email (if time allows).
-* [ ] Document routes and API endpoints.
+* [x] Perform end-to-end testing for Admin & Public flows.
+* [x] Strengthen request validations.
+* [x] Implement error handling and flash messaging.
+* [x] Add booking notification email (if time allows).
+* [x] Document routes and API endpoints.
 
 ---
 
