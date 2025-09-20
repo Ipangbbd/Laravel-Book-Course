@@ -1,4 +1,3 @@
-```markdown
 # 🎓 Xperium Academy - Laravel Booking System  
 *Book Courses Seamlessly, Manage with Ease*  
 
@@ -154,5 +153,4 @@ This project is licensed under the **MIT License**.
 
 👨‍💻 Developed by [Ipangbbd](https://github.com/Ipangbbd)
 
-```
 ```
