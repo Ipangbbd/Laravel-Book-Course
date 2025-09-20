@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin-layout')
 
 @section('title', 'Booking Details - Admin')
 
@@ -158,7 +158,7 @@
             </div>
             <div class="card-body">
                 @if($booking->payment)
-                    <p><strong>Amount:</strong> ${{ number_format($booking->payment->amount, 2) }}</p>
+                    <p><strong>Amount:</strong> Rp.{{ number_format($booking->payment->amount, 2) }}</p>
                     <p><strong>Method:</strong> {{ ucfirst($booking->payment->payment_method ?? 'N/A') }}</p>
                     <p><strong>Status:</strong> 
                         @if($booking->payment->status == 'pending')

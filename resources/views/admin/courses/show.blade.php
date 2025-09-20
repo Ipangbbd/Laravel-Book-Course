@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin-layout')
 
 @section('title', $course->name . ' - Course Details')
 
@@ -27,10 +27,10 @@
                         <div class="card-body">
                             @if($course->image_path)
                                 <div class="mb-3">
-                                    <img src="{{ asset('storage/' . $course->image_path) }}" 
-                                         alt="{{ $course->name }}" 
-                                         class="img-fluid rounded" 
-                                         style="max-height: 300px; width: 100%; object-fit: cover;">
+                                    <img    src="{{ asset('storage/' . $course->image_path) }}" 
+                                            alt="{{ $course->name }}" 
+                                            class="img-fluid rounded" 
+                                            style="max-height: 300px; width: 100%; object-fit: cover;">
                                 </div>
                             @endif
 
@@ -71,7 +71,7 @@
                                 </div>
                                 <div class="col-md-3">
                                     <h6>Price</h6>
-                                    <p><i class="fa fa-dollar"></i> ${{ number_format($course->price, 2) }}</p>
+                                    <p><i class="fa fa-dollar"></i> Rp.{{ number_format($course->price, 2) }}</p>
                                 </div>
                             </div>
                         </div>

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin-layout')
 
 @section('title', 'Add New Booking - Admin')
 
@@ -71,10 +71,10 @@
                     <div class="form-group">
                         <label for="notes">Student Notes</label>
                         <textarea name="notes" 
-                                  id="notes" 
-                                  class="form-control @error('notes') is-invalid @enderror" 
-                                  rows="3" 
-                                  placeholder="Optional notes from student...">{{ old('notes') }}</textarea>
+                                    id="notes" 
+                                    class="form-control @error('notes') is-invalid @enderror" 
+                                    rows="3" 
+                                    placeholder="Optional notes from student...">{{ old('notes') }}</textarea>
                         @error('notes')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
@@ -83,10 +83,10 @@
                     <div class="form-group">
                         <label for="admin_notes">Admin Notes</label>
                         <textarea name="admin_notes" 
-                                  id="admin_notes" 
-                                  class="form-control @error('admin_notes') is-invalid @enderror" 
-                                  rows="3" 
-                                  placeholder="Optional admin notes about this booking...">{{ old('admin_notes') }}</textarea>
+                                    id="admin_notes" 
+                                    class="form-control @error('admin_notes') is-invalid @enderror" 
+                                    rows="3" 
+                                    placeholder="Optional admin notes about this booking...">{{ old('admin_notes') }}</textarea>
                         @error('admin_notes')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror

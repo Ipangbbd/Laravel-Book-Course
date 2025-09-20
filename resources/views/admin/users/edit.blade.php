@@ -1,168 +1,154 @@
-@extends('layouts.app')
+@extends('layouts.admin-layout')
 
 @section('title', 'Edit User - Admin Dashboard')
 
 @section('content')
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-12">
-            <div class="d-flex justify-content-between align-items-center mb-3">
-                <h2>Edit User: {{ $user->name }}</h2>
-                <a href="{{ route('admin.users.index') }}" class="btn btn-secondary">
-                    <i class="fa fa-arrow-left"></i> Back to Users
-                </a>
-            </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h2>Edit User: {{ $user->name }}</h2>
+                    <a href="{{ route('admin.users.index') }}" class="btn btn-secondary">
+                        <i class="fa fa-arrow-left"></i> Back to Users
+                    </a>
+                </div>
 
-            <div class="row justify-content-center">
-                <div class="col-md-8">
-                    <div class="card">
-                        <div class="card-body">
-                            <form action="{{ route('admin.users.update', $user) }}" method="POST" enctype="multipart/form-data">
-                                @csrf
-                                @method('PUT')
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <div class="card">
+                            <div class="card-body">
+                                <form action="{{ route('admin.users.update', $user) }}" method="POST"
+                                    enctype="multipart/form-data">
+                                    @csrf
+                                    @method('PUT')
 
-                                <div class="row">
-                                    <div class="col-md-8">
-                                        <!-- Name -->
-                                        <div class="form-group">
-                                            <label for="name">Full Name *</label>
-                                            <input type="text" 
-                                                   class="form-control @error('name') is-invalid @enderror" 
-                                                   id="name" 
-                                                   name="name" 
-                                                   value="{{ old('name', $user->name) }}" 
-                                                   required>
-                                            @error('name')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
-                                        </div>
-
-                                        <!-- Email -->
-                                        <div class="form-group">
-                                            <label for="email">Email Address *</label>
-                                            <input type="email" 
-                                                   class="form-control @error('email') is-invalid @enderror" 
-                                                   id="email" 
-                                                   name="email" 
-                                                   value="{{ old('email', $user->email) }}" 
-                                                   required>
-                                            @error('email')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
-                                        </div>
-
-                                        <!-- Password -->
-                                        <div class="form-group">
-                                            <label for="password">New Password</label>
-                                            <input type="password" 
-                                                   class="form-control @error('password') is-invalid @enderror" 
-                                                   id="password" 
-                                                   name="password">
-                                            @error('password')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
-                                            <small class="form-text text-muted">Leave blank to keep current password</small>
-                                        </div>
-
-                                        <!-- Confirm Password -->
-                                        <div class="form-group">
-                                            <label for="password_confirmation">Confirm New Password</label>
-                                            <input type="password" 
-                                                   class="form-control" 
-                                                   id="password_confirmation" 
-                                                   name="password_confirmation">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-4">
-                                        <!-- Current Avatar -->
-                                        @if($user->avatar_path)
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <!-- Name -->
                                             <div class="form-group">
-                                                <label>Current Avatar</label>
-                                                <div>
-                                                    <img src="{{ asset('storage/' . $user->avatar_path) }}" 
-                                                         alt="{{ $user->name }}" 
-                                                         class="img-thumbnail mb-2" 
-                                                         style="max-width: 150px; max-height: 150px;">
-                                                </div>
+                                                <label for="name">Full Name *</label>
+                                                <input type="text" class="form-control @error('name') is-invalid @enderror"
+                                                    id="name" name="name" value="{{ old('name', $user->name) }}" required>
+                                                @error('name')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
                                             </div>
-                                        @endif
 
-                                        <!-- Avatar -->
-                                        <div class="form-group">
-                                            <label for="avatar">{{ $user->avatar_path ? 'Change' : 'Add' }} Avatar</label>
-                                            <input type="file" 
-                                                   class="form-control-file @error('avatar') is-invalid @enderror" 
-                                                   id="avatar" 
-                                                   name="avatar" 
-                                                   accept="image/*">
-                                            @error('avatar')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
-                                            <small class="form-text text-muted">Max 2MB, JPEG/PNG only</small>
+                                            <!-- Email -->
+                                            <div class="form-group">
+                                                <label for="email">Email Address *</label>
+                                                <input type="email"
+                                                    class="form-control @error('email') is-invalid @enderror" id="email"
+                                                    name="email" value="{{ old('email', $user->email) }}" required>
+                                                @error('email')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                            </div>
+
+                                            <!-- Password -->
+                                            <div class="form-group">
+                                                <label for="password">New Password</label>
+                                                <input type="password"
+                                                    class="form-control @error('password') is-invalid @enderror"
+                                                    id="password" name="password">
+                                                @error('password')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                                <small class="form-text text-muted">Leave blank to keep current
+                                                    password</small>
+                                            </div>
+
+                                            <!-- Confirm Password -->
+                                            <div class="form-group">
+                                                <label for="password_confirmation">Confirm New Password</label>
+                                                <input type="password" class="form-control" id="password_confirmation"
+                                                    name="password_confirmation">
+                                            </div>
                                         </div>
 
-                                        <!-- Role -->
-                                        <div class="form-group">
-                                            <label for="role">Role *</label>
-                                            <select class="form-control @error('role') is-invalid @enderror" 
-                                                    id="role" 
-                                                    name="role" 
-                                                    required>
-                                                <option value="">Select Role</option>
-                                                <option value="admin" {{ old('role', $user->role) == 'admin' ? 'selected' : '' }}>Admin</option>
-                                                <option value="student" {{ old('role', $user->role) == 'student' ? 'selected' : '' }}>Student</option>
-                                            </select>
-                                            @error('role')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
-                                        </div>
+                                        <div class="col-md-4">
+                                            <!-- Current Avatar -->
+                                            @if($user->avatar_path)
+                                                <div class="form-group">
+                                                    <label>Current Avatar</label>
+                                                    <div>
+                                                        <img src="{{ asset('storage/' . $user->avatar_path) }}"
+                                                            alt="{{ $user->name }}" class="img-thumbnail mb-2"
+                                                            style="max-width: 150px; max-height: 150px;">
+                                                    </div>
+                                                </div>
+                                            @endif
 
-                                        <!-- Status -->
-                                        <div class="form-group">
-                                            <label for="status">Status *</label>
-                                            <select class="form-control @error('status') is-invalid @enderror" 
-                                                    id="status" 
-                                                    name="status" 
-                                                    required>
-                                                <option value="active" {{ old('status', $user->status) == 'active' ? 'selected' : '' }}>Active</option>
-                                                <option value="inactive" {{ old('status', $user->status) == 'inactive' ? 'selected' : '' }}>Inactive</option>
-                                            </select>
-                                            @error('status')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
+                                            <!-- Avatar -->
+                                            <div class="form-group">
+                                                <label for="avatar">{{ $user->avatar_path ? 'Change' : 'Add' }}
+                                                    Avatar</label>
+                                                <input type="file"
+                                                    class="form-control-file @error('avatar') is-invalid @enderror"
+                                                    id="avatar" name="avatar" accept="image/*">
+                                                @error('avatar')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                                <small class="form-text text-muted">Max 2MB, JPEG/PNG only</small>
+                                            </div>
+
+                                            <!-- Role -->
+                                            <div class="form-group">
+                                                <label for="role">Role *</label>
+                                                <select class="form-control @error('role') is-invalid @enderror" id="role"
+                                                    name="role" required>
+                                                    <option value="">Select Role</option>
+                                                    <option value="admin" {{ old('role', $user->role) == 'admin' ? 'selected' : '' }}>Admin</option>
+                                                    <option value="student" {{ old('role', $user->role) == 'student' ? 'selected' : '' }}>Student</option>
+                                                </select>
+                                                @error('role')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                            </div>
+
+                                            <!-- Status -->
+                                            <div class="form-group">
+                                                <label for="status">Status *</label>
+                                                <select class="form-control @error('status') is-invalid @enderror"
+                                                    id="status" name="status" required>
+                                                    <option value="active" {{ old('status', $user->status) == 'active' ? 'selected' : '' }}>Active</option>
+                                                    <option value="inactive" {{ old('status', $user->status) == 'inactive' ? 'selected' : '' }}>Inactive</option>
+                                                </select>
+                                                @error('status')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
 
-                                <hr>
+                                    <hr>
 
-                                <div class="form-group">
-                                    <button type="submit" class="btn btn-primary">
-                                        <i class="fa fa-save"></i> Update User
-                                    </button>
-                                    <a href="{{ route('admin.users.index') }}" class="btn btn-secondary ml-2">
-                                        Cancel
-                                    </a>
-                                </div>
-                            </form>
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-primary">
+                                            <i class="fa fa-save"></i> Update User
+                                        </button>
+                                        <a href="{{ route('admin.users.index') }}" class="btn btn-secondary ml-2">
+                                            Cancel
+                                        </a>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 @endsection
