@@ -727,7 +727,7 @@
         </nav>
     </div>
 
-    <!-- Main Content — YOUR DOMAIN. I TOUCH NOTHING. -->
+    <!-- Main Content  -->
     <div class="container mt-4">
         <!-- Flash Messages -->
         @if(session('success'))
@@ -757,7 +757,7 @@
             </div>
         @endif
 
-        <!-- Page Content — YOUR MASTERPIECE -->
+        <!-- Page Content -->
         @yield('content')
     </div>
 
