@@ -230,7 +230,7 @@
                                             <h6 class="card-title">{{ $course->name }}</h6>
                                             <p class="card-text text-muted small">{{ Str::limit($course->description, 80) }}</p>
                                             <p class="mb-2">
-                                                <strong class="text-primary">${{ number_format($course->price, 2) }}</strong>
+                                                <strong class="text-primary">Rp{{ number_format($course->price, 0, ',', '.') }}</strong>
                                                 <span class="badge badge-secondary">{{ $course->category->name }}</span>
                                             </p>
                                         </div>

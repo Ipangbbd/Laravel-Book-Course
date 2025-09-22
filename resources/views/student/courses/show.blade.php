@@ -29,7 +29,7 @@
                     <div class="mb-3">
                         <span class="badge badge-primary">{{ $course->category->name }}</span>
                         <span class="badge badge-info">{{ $course->formatted_duration }}</span>
-                        <span class="badge badge-success">${{ number_format($course->price, 2) }}</span>
+                        <span class="badge badge-success">Rp{{ number_format($course->price, 0, ',', '.') }}</span>
                     </div>
 
                     <div class="row mb-3">
@@ -143,7 +143,7 @@
                 </div>
                 <div class="card-body">
                     <div class="mb-3">
-                        <h4 class="text-primary">${{ number_format($course->price, 2) }}</h4>
+                        <h4 class="text-primary">Rp{{ number_format($course->price, 0, ',', '.') }}</h4>
                         <small class="text-muted">per session</small>
                     </div>
 

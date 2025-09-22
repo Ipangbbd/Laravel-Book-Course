@@ -29,7 +29,7 @@
                                 <option value="{{ $bookingOption->id }}" {{ (old('booking_id') ?? $booking?->id) == $bookingOption->id ? 'selected' : '' }}>
                                     {{ $bookingOption->booking_code }} - {{ $bookingOption->user->name }} 
                                     ({{ $bookingOption->schedule->course->name }})
-                                    - ${{ number_format($bookingOption->schedule->course->price, 2) }}
+                                    - Rp{{ number_format($bookingOption->schedule->course->price, 0, ',', '.') }}
                                 </option>
                             @endforeach
                         </select>

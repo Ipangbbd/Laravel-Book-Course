@@ -149,7 +149,7 @@
             </div>
             <div class="card-body">
                 <p><strong>Instructor:</strong> {{ $schedule->course->instructor_name ?? 'N/A' }}</p>
-                <p><strong>Price:</strong> ${{ number_format($schedule->course->price, 2) }}</p>
+                <p><strong>Price:</strong> Rp{{ number_format($schedule->course->price, 0, ',', '.') }}</p>
                 <p><strong>Duration:</strong> {{ $schedule->course->formatted_duration }}</p>
                 <p><strong>Max Participants:</strong> {{ $schedule->course->max_participants }}</p>
                 @if($schedule->course->description)

@@ -49,7 +49,7 @@
                                                 {{ ucfirst($booking->status) }}
                                             </span>
                                         </p>
-                                        <p><strong>Amount:</strong> <span class="text-primary h5">${{ number_format($booking->schedule->course->price, 2) }}</span></p>
+                                        <p><strong>Amount:</strong> <span class="text-primary h5">Rp{{ number_format($booking->schedule->course->price, 0, ',', '.') }}</span></p>
                                     </div>
                                 </div>
                             </div>
@@ -70,7 +70,7 @@
                                         {{ $bookingOption->booking_code }} - 
                                         {{ $bookingOption->schedule->course->name }} 
                                         ({{ $bookingOption->schedule->start_datetime->format('M j, Y') }}) 
-                                        - ${{ number_format($bookingOption->schedule->course->price, 2) }}
+                                        - Rp{{ number_format($bookingOption->schedule->course->price, 0, ',', '.') }}
                                     </option>
                                 @endforeach
                             </select>

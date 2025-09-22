@@ -56,7 +56,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <h6>Payment Information</h6>
-                        <p><strong>Amount:</strong> <span class="text-primary h5">${{ number_format($payment->amount, 2) }}</span></p>
+                        <p><strong>Amount:</strong> <span class="text-primary h5">Rp{{ number_format($payment->amount, 0, ',', '.') }}</span></p>
                         <p><strong>Payment Method:</strong> {{ str_replace('_', ' ', ucfirst($payment->payment_method)) }}</p>
                         <p><strong>Payment Date:</strong> {{ $payment->paid_at->format('M j, Y g:i A') }}</p>
                         @if($payment->transaction_reference)

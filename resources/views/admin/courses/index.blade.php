@@ -62,7 +62,7 @@
                                             </td>
                                             <td>{{ $course->category->name ?? 'N/A' }}</td>
                                             <td>{{ $course->instructor_name }}</td>
-                                            <td>${{ number_format($course->price, 2) }}</td>
+                                            <td>Rp{{ number_format($course->price, 0, ',', '.') }}</td>
                                             <td>{{ $course->formatted_duration }}</td>
                                             <td>{{ $course->max_participants }}</td>
                                             <td>

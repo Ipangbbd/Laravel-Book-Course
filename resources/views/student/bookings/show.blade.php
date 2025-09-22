@@ -67,11 +67,11 @@
                                         <span class="text-danger">{{ ucfirst($booking->payment->status) }}</span>
                                     @endif
                                 </p>
-                                <p><strong>Amount:</strong> ${{ number_format($booking->payment->amount, 2) }}</p>
+                                <p><strong>Amount:</strong> Rp{{ number_format($booking->payment->amount, 0, ',', '.') }}</p>
                                 <p><strong>Payment Date:</strong> {{ $booking->payment->paid_at->format('M j, Y') }}</p>
                             @else
                                 <p><strong>Payment Status:</strong> <span class="text-secondary">Not Paid</span></p>
-                                <p><strong>Amount Due:</strong> ${{ number_format($booking->schedule->course->price, 2) }}</p>
+                                <p><strong>Amount Due:</strong> Rp{{ number_format($booking->schedule->course->price, 0, ',', '.') }}</p>
                             @endif
                         </div>
                     </div>
@@ -123,7 +123,7 @@
                                     <p><strong>Duration:</strong> {{ $booking->schedule->course->formatted_duration }}</p>
                                 </div>
                                 <div class="col-6">
-                                    <p><strong>Price:</strong> ${{ number_format($booking->schedule->course->price, 2) }}
+                                    <p><strong>Price:</strong> Rp{{ number_format($booking->schedule->course->price, 0, ',', '.') }}
                                     </p>
                                     <p><strong>Max Participants:</strong> {{ $booking->schedule->course->max_participants }}
                                     </p>

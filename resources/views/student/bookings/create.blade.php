@@ -47,7 +47,7 @@
                                     <div class="col-md-6">
                                         <strong>Schedule:</strong> {{ $schedule->start_datetime->format('M j, Y') }}<br>
                                         <strong>Time:</strong> {{ $schedule->start_datetime->format('g:i A') }} - {{ $schedule->end_datetime->format('g:i A') }}<br>
-                                        <strong>Price:</strong> <span class="text-primary">${{ number_format($schedule->course->price, 2) }}</span>
+                                        <strong>Price:</strong> <span class="text-primary">Rp{{ number_format($schedule->course->price, 0, ',', '.') }}</span>
                                     </div>
                                 </div>
                                 
@@ -78,7 +78,7 @@
                                                     data-slots="{{ $schedule->available_slots - $schedule->booked_slots }}">
                                                 {{ $schedule->start_datetime->format('M j, Y g:i A') }} 
                                                 ({{ $schedule->available_slots - $schedule->booked_slots }} slots available)
-                                                - ${{ number_format($schedule->course->price, 2) }}
+                                                - Rp{{ number_format($schedule->course->price, 0, ',', '.') }}
                                             </option>
                                         @endforeach
                                     </optgroup>
@@ -215,12 +215,14 @@ document.addEventListener('DOMContentLoaded', function() {
     if (scheduleSelect) {
         scheduleSelect.addEventListener('change', function() {
             const selectedOption = this.options[this.selectedIndex];
-            if (selectedOption.value) {
+                if (selectedOption.value) {
                 const price = selectedOption.getAttribute('data-price');
                 const slots = selectedOption.getAttribute('data-slots');
                 
                 // You can add dynamic updates here if needed
-                console.log('Selected schedule - Price: $' + price + ', Slots: ' + slots);
+                // Format numeric price to Indonesian rupiah style for display in console
+                const formattedPrice = Number(price).toLocaleString('id-ID', {maximumFractionDigits: 0});
+                console.log('Selected schedule - Price: Rp' + formattedPrice + ', Slots: ' + slots);
             }
         });
     }

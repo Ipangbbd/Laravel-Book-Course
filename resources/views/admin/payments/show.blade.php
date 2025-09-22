@@ -33,7 +33,7 @@
                 <div class="row mb-3">
                     <div class="col-md-3"><strong>Amount:</strong></div>
                     <div class="col-md-9">
-                        <h4 class="text-success">${{ number_format($payment->amount, 2) }}</h4>
+                        <h4 class="text-success">Rp{{ number_format($payment->amount, 0, ',', '.') }}</h4>
                     </div>
                 </div>
 
@@ -191,7 +191,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p><strong>Amount:</strong> ${{ number_format($payment->amount, 2) }}</p>
+                    <p><strong>Amount:</strong> Rp{{ number_format($payment->amount, 0, ',', '.') }}</p>
                     <p><strong>Student:</strong> {{ $payment->booking->user->name }}</p>
                     <div class="form-group">
                         <label for="admin_notes">Admin Notes</label>
@@ -224,7 +224,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p><strong>Amount:</strong> ${{ number_format($payment->amount, 2) }}</p>
+                    <p><strong>Amount:</strong> Rp{{ number_format($payment->amount, 0, ',', '.') }}</p>
                     <p><strong>Student:</strong> {{ $payment->booking->user->name }}</p>
                     <div class="form-group">
                         <label for="rejection_reason">Rejection Reason <span class="text-danger">*</span></label>

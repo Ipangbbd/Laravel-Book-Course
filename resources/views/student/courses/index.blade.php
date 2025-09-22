@@ -133,7 +133,7 @@
                                 </div>
                                 <div class="col-6 text-right">
                                     <small class="text-muted">Price:</small><br>
-                                    <h5 class="text-primary mb-0">${{ number_format($course->price, 2) }}</h5>
+                                    <h5 class="text-primary mb-0">Rp{{ number_format($course->price, 0, ',', '.') }}</h5>
                                 </div>
                             </div>
 

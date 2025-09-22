@@ -53,7 +53,7 @@
                                             </small>
                                         </td>
                                         <td>
-                                            <strong>${{ number_format($payment->amount, 2) }}</strong>
+                                            <strong>Rp{{ number_format($payment->amount, 0, ',', '.') }}</strong>
                                         </td>
                                         <td>
                                             {{ ucfirst(str_replace('_', ' ', $payment->payment_method ?? 'N/A')) }}
@@ -135,7 +135,7 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <p><strong>Payment:</strong> ${{ number_format($payment->amount, 2) }}</p>
+                            <p><strong>Payment:</strong> Rp{{ number_format($payment->amount, 0, ',', '.') }}</p>
                             <p><strong>Student:</strong> {{ $payment->booking->user->name }}</p>
                             <div class="form-group">
                                 <label for="rejection_reason">Rejection Reason <span class="text-danger">*</span></label>
@@ -174,7 +174,7 @@
                         </div>
                         <div class="modal-body">
                             <p><i class="fa fa-exclamation-triangle text-warning"></i> <strong>Are you sure you want to delete this payment?</strong></p>
-                            <p><strong>Payment Amount:</strong> ${{ number_format($payment->amount, 2) }}</p>
+                            <p><strong>Payment Amount:</strong> Rp{{ number_format($payment->amount, 0, ',', '.') }}</p>
                             <p><strong>Student:</strong> {{ $payment->booking->user->name }}</p>
                             <p><strong>Booking:</strong> {{ $payment->booking->booking_code }}</p>
                             <div class="alert alert-warning">

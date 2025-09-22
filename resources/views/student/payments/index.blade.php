@@ -102,7 +102,7 @@
 
                             <div class="mb-2">
                                 <small class="text-muted">Amount:</small><br>
-                                <h5 class="text-primary mb-0">${{ number_format($payment->amount, 2) }}</h5>
+                                <h5 class="text-primary mb-0">Rp{{ number_format($payment->amount, 0, ',', '.') }}</h5>
                             </div>
 
                             <div class="mb-2">

@@ -85,7 +85,7 @@
                                                 <tr>
                                                     <td>{{ $course->name }}</td>
                                                     <td>{{ $course->instructor_name }}</td>
-                                                    <td>${{ number_format($course->price, 2) }}</td>
+                                                    <td>Rp{{ number_format($course->price, 0, ',', '.') }}</td>
                                                     <td>
                                                         @if($course->status === 'active')
                                                             <span class="badge badge-success">Active</span>

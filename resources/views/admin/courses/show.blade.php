@@ -71,7 +71,7 @@
                                 </div>
                                 <div class="col-md-3">
                                     <h6>Price</h6>
-                                    <p><i class="fa fa-dollar"></i> ${{ number_format($course->price, 2) }}</p>
+                                    <p>Rp{{ number_format($course->price, 0, ',', '.') }}</p>
                                 </div>
                             </div>
                         </div>
